@@ -2,7 +2,7 @@
 
 Step 1: Get kernel sources from GitHub link https://github.com/torvalds/linux/blob/master/arch/x86/kvm/cpuid.c 
 
-Step 2: modify cupid.c 
+Step 2: modify cupid.c ,add c funtions to test cpuid ox4FFFFFFF.
 
 Step 3: Run the following command on terminal
 •	sudo bash
