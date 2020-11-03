@@ -929,20 +929,20 @@ int kvm_emulate_cpuid(struct kvm_vcpu *vcpu)
 		{
 			printk(KERN_INFO "EAX == 0x%x after kvm_cpuid()\n", eax);
 			eax = exit_counter;
-    		ecx = exit_delta_tsc & 0xffffffff;
-    		ebx = (exit_delta_tsc >> 32) & 0xffffffff;
+    			ecx = exit_delta_tsc & 0xffffffff;
+    			ebx = (exit_delta_tsc >> 32) & 0xffffffff;
 
 		}
 	else
 		{
 	 		kvm_cpuid(vcpu, &eax, &ebx, &ecx, &edx, true);
-     		printk(KERN_INFO "EAX == 0x%x after kvm_cpuid()\n", eax);
+     			printk(KERN_INFO "EAX == 0x%x after kvm_cpuid()\n", eax);
 		}
-	kvm_register_write(vcpu, VCPU_REGS_RAX, eax);
-	kvm_register_write(vcpu, VCPU_REGS_RBX, ebx);
-	kvm_register_write(vcpu, VCPU_REGS_RCX, ecx);
-	kvm_register_write(vcpu, VCPU_REGS_RDX, edx);
-	return kvm_skip_emulated_instruction(vcpu);
+		kvm_register_write(vcpu, VCPU_REGS_RAX, eax);
+		kvm_register_write(vcpu, VCPU_REGS_RBX, ebx);
+		kvm_register_write(vcpu, VCPU_REGS_RCX, ecx);
+		kvm_register_write(vcpu, VCPU_REGS_RDX, edx);
+		return kvm_skip_emulated_instruction(vcpu);
 }
 
 EXPORT_SYMBOL_GPL(kvm_emulate_cpuid);
